@@ -28,20 +28,20 @@ add("NCA ECC 2-1-3-2 | Asset Classification by Operating System",
     "matrix", 2, 1,
     # Use plugin 11936 (OS Identification) — the same plugin that populates the
     # OS CPE field. Filter by pluginText to match the OS family string found in
-    # the plugin output (e.g. "Windows", "Linux", "Mac OS X", "Cisco IOS").
-    # The operatingSystem filter requires the EXACT detected value (e.g.
-    # "Linux Kernel 4.8") which varies per host; pluginText with plugin 11936
-    # reliably catches the family.
+    # the plugin output. Actual lab output format is:
+    #   "Remote operating system : Microsoft Windows Server 2019 ..."
+    #   "Remote operating system : Linux Kernel 4.18.0-... on Oracle Linux ..."
+    # So the reliable family substrings are "Microsoft Windows" and "Linux Kernel".
     matrix("Hosts by Operating System",
            ["Microsoft Windows", "Linux / UNIX", "Mac OS X", "Network / Other"],
            ["Hosts"],
-           [("sumip", [flt("pluginID", "11936"), flt("pluginText", "Windows")],
+           [("sumip", [flt("pluginID", "11936"), flt("pluginText", "Microsoft Windows")],
              C_BLUE, "cumulative", "ipCount"),
-            ("sumip", [flt("pluginID", "11936"), flt("pluginText", "Linux")],
+            ("sumip", [flt("pluginID", "11936"), flt("pluginText", "Linux Kernel")],
              C_PURPLE, "cumulative", "ipCount"),
             ("sumip", [flt("pluginID", "11936"), flt("pluginText", "Mac OS X")],
              C_NEUTRAL, "cumulative", "ipCount"),
-            ("sumip", [flt("pluginID", "11936"), flt("pluginText", "Cisco")],
+            ("sumip", [flt("pluginID", "11936"), flt("pluginText", "Cisco IOS")],
              C_AMBER, "cumulative", "ipCount")]))
 
 # 2-1-3-3 : Detailed asset inventory table ---------------------------------
