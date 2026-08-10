@@ -33,13 +33,13 @@ add("NCA ECC 2-1-3-2 | Asset Classification by Operating System",
     #   "Remote operating system : Linux Kernel 4.18.0-... on Oracle Linux ..."
     # So the reliable family substrings are "Microsoft Windows" and "Linux Kernel".
     matrix("Hosts by Operating System",
-           ["Microsoft Windows", "Linux / UNIX", "Mac OS X", "Network / Other"],
+           ["Microsoft Windows", "Linux / UNIX", "macOS", "Network / Other"],
            ["Hosts"],
            [("sumip", [flt("pluginID", "11936"), flt("pluginText", "Microsoft Windows")],
              C_BLUE, "cumulative", "ipCount"),
             ("sumip", [flt("pluginID", "11936"), flt("pluginText", "Linux Kernel")],
              C_PURPLE, "cumulative", "ipCount"),
-            ("sumip", [flt("pluginID", "11936"), flt("pluginText", "Mac OS X")],
+            ("sumip", [flt("pluginID", "11936"), flt("pluginText", "macOS")],
              C_NEUTRAL, "cumulative", "ipCount"),
             ("sumip", [flt("pluginID", "11936"), flt("pluginText", "Cisco IOS")],
              C_AMBER, "cumulative", "ipCount")]))
