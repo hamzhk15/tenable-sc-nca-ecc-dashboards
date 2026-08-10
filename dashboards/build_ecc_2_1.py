@@ -39,7 +39,7 @@ add("NCA ECC 2-1-3-2 | Asset Classification by Operating System",
              C_BLUE, "cumulative", "ipCount"),
             ("sumip", [flt("pluginID", "11936"), flt("pluginText", "Linux Kernel")],
              C_PURPLE, "cumulative", "ipCount"),
-            ("sumip", [flt("pluginID", "11936"), flt("pluginText", "macOS")],
+            ("sumip", [flt("pluginID", "11936"), flt("pluginText", "Mac OS")],
              C_NEUTRAL, "cumulative", "ipCount"),
             ("sumip", [flt("pluginID", "11936"), flt("pluginText", "Cisco IOS")],
              C_AMBER, "cumulative", "ipCount")]))
