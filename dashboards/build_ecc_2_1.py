@@ -42,9 +42,9 @@ add("NCA ECC 2-1-3-2 | Asset Classification by Operating System",
             ("sumip", [flt("pluginID", "11936"), flt("pluginText", "Mac OS")],
              C_NEUTRAL, "cumulative", "ipCount"),
             ("sumip", [flt("pluginID", "11936"),
-                      flt("pluginText", "Microsoft Windows", "!="),
-                      flt("pluginText", "Linux Kernel", "!="),
-                      flt("pluginText", "Mac OS", "!=")],
+                      flt("pluginText",
+                          "Remote operating system : (?!.*(Microsoft Windows|Linux Kernel|Mac OS))",
+                          "pcre")],
              C_AMBER, "cumulative", "ipCount")]))
 
 # 2-1-3-3 : Detailed asset inventory table ---------------------------------
